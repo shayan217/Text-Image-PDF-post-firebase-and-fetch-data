@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "419126786648",
+    "project_id": "textimagepdfpicker",
+    "storage_bucket": "textimagepdfpicker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419126786648:android:f1456dca3ddd7a5e35e82d",
+        "android_client_info": {
+          "package_name": "com.example.text_image_pdf_picker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnAcDtNqzb9BL7xqlA_G2wJYM2yUEHlB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419126786648:android:92367ad05917307435e82d",
+        "android_client_info": {
+          "package_name": "com.yourcompany.yourapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnAcDtNqzb9BL7xqlA_G2wJYM2yUEHlB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

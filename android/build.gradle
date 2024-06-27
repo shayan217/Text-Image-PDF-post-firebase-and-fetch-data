@@ -1,0 +1,29 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    // Force specific Kotlin library versions to resolve conflicts
+    configurations.all {
+        resolutionStrategy {
+            force "org.jetbrains.kotlin:kotlin-stdlib:1.8.22"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22"
+        }
+    }
+}
+
+// Retaining the existing configurations
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
+

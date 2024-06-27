@@ -1,0 +1,71 @@
+plugins {
+    id "com.android.application"
+    id 'com.google.gms.google-services' // FlutterFire Configuration
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader("UTF-8") { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty("flutter.versionCode")
+if (flutterVersionCode == null) {
+    flutterVersionCode = "1"
+}
+
+def flutterVersionName = localProperties.getProperty("flutter.versionName")
+if (flutterVersionName == null) {
+    flutterVersionName = "1.0"
+}
+
+android {
+    namespace = "com.example.text_image_pdf_picker"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+    compileSdkVersion 34
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.example.text_image_pdf_picker"
+        minSdk = flutter.minSdkVersion
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutterVersionCode.toInteger()
+        versionName = flutterVersionName
+        multiDexEnabled = true
+        targetSdkVersion 33
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug // Replace with your own signing config for release builds
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    // Force the same version of Kotlin for all dependencies to avoid conflicts
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.22"
+    // Add other dependencies as required
+}
+
+// Force specific Kotlin versions to resolve duplicate class issues
+configurations.all {
+    resolutionStrategy {
+        force "org.jetbrains.kotlin:kotlin-stdlib:1.8.22"
+        force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22"
+        force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22"
+    }
+}
